@@ -8,7 +8,6 @@ def blank_collapse(emission, blank_threshold=0.9, blank_id=0):
     u = u.tolist()
     c = c.tolist()
     cc = []
-    k = 0
     for j in range(len(c)):
         if u[j]:    # if blank
             if j == 0:
@@ -19,7 +18,6 @@ def blank_collapse(emission, blank_threshold=0.9, blank_id=0):
                 cc.append(c[j])
         else:
             cc += [1] * c[j]
-        k += c[j]
     if len(cc) == 0:    # case: every frame is a blank frame
         cc = [0]
         first_blanks = 0
